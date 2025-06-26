@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "TVDK2Kv1EcU=",
+  "success": true,
+  "projectFilePath": "C:\\Repos\\cefalo\\Cefalo.Csharp.Api\\Cefalo.Csharp.Api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\raiyan.hossain\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.6\\microsoft.aspnetcore.openapi.9.0.6.nupkg.sha512",
+    "C:\\Users\\raiyan.hossain\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}

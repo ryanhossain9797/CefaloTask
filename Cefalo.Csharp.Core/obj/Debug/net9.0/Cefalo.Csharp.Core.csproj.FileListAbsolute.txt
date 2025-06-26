@@ -1,0 +1,11 @@
+c:\Repos\cefalo\Cefalo.Csharp.Core\bin\Debug\net9.0\Cefalo.Csharp.Core.deps.json
+c:\Repos\cefalo\Cefalo.Csharp.Core\bin\Debug\net9.0\Cefalo.Csharp.Core.dll
+c:\Repos\cefalo\Cefalo.Csharp.Core\bin\Debug\net9.0\Cefalo.Csharp.Core.pdb
+c:\Repos\cefalo\Cefalo.Csharp.Core\obj\Debug\net9.0\Cefalo.Csharp.Core.GeneratedMSBuildEditorConfig.editorconfig
+c:\Repos\cefalo\Cefalo.Csharp.Core\obj\Debug\net9.0\Cefalo.Csharp.Core.AssemblyInfoInputs.cache
+c:\Repos\cefalo\Cefalo.Csharp.Core\obj\Debug\net9.0\Cefalo.Csharp.Core.AssemblyInfo.cs
+c:\Repos\cefalo\Cefalo.Csharp.Core\obj\Debug\net9.0\Cefalo.Csharp.Core.csproj.CoreCompileInputs.cache
+c:\Repos\cefalo\Cefalo.Csharp.Core\obj\Debug\net9.0\Cefalo.Csharp.Core.dll
+c:\Repos\cefalo\Cefalo.Csharp.Core\obj\Debug\net9.0\refint\Cefalo.Csharp.Core.dll
+c:\Repos\cefalo\Cefalo.Csharp.Core\obj\Debug\net9.0\Cefalo.Csharp.Core.pdb
+c:\Repos\cefalo\Cefalo.Csharp.Core\obj\Debug\net9.0\ref\Cefalo.Csharp.Core.dll
