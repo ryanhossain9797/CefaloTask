@@ -47,7 +47,7 @@ public class TaskManagementDbContext : DbContext
                 Id = 1,
                 Title = "Complete project documentation",
                 Status = Cefalo.Csharp.Core.Entities.TicketStatus.Todo,
-                CreatedAt = DateTime.UtcNow,
+                CreatedAt = new DateTime(2024, 6, 27, 0, 0, 0, DateTimeKind.Utc),
                 UserId = 1
             },
             new Ticket
@@ -55,7 +55,7 @@ public class TaskManagementDbContext : DbContext
                 Id = 2,
                 Title = "Review code changes",
                 Status = Cefalo.Csharp.Core.Entities.TicketStatus.InProgress,
-                CreatedAt = DateTime.UtcNow.AddDays(-1),
+                CreatedAt = new DateTime(2024, 6, 26, 0, 0, 0, DateTimeKind.Utc),
                 UserId = 2
             }
         );
