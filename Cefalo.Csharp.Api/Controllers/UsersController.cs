@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Cefalo.Csharp.Core.Entities;
 using Cefalo.Csharp.Core.Services;
+using Cefalo.Csharp.Core.DTOs;
 
 namespace Cefalo.Csharp.Api.Controllers;
 
@@ -16,30 +17,53 @@ public class UsersController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+    public async Task<ActionResult<IEnumerable<UserDto>>> GetUsers()
     {
         var users = await _userService.GetAllUsersAsync();
-        return Ok(users);
+        var userDtos = users.Select(u => new UserDto
+        {
+            Id = u.Id,
+            Name = u.Name
+        });
+        return Ok(userDtos);
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<User>> GetUser(int id)
+    public async Task<ActionResult<UserDto>> GetUser(int id)
     {
         var user = await _userService.GetUserByIdAsync(id);
         if (user == null)
         {
             return NotFound();
         }
-        return Ok(user);
+
+        var userDto = new UserDto
+        {
+            Id = user.Id,
+            Name = user.Name
+        };
+        return Ok(userDto);
     }
 
     [HttpPost]
-    public async Task<ActionResult<User>> CreateUser(User user)
+    public async Task<ActionResult<UserDto>> CreateUser(UserDto userDto)
     {
         try
         {
+            var user = new User
+            {
+                Name = userDto.Name
+            };
+
             var createdUser = await _userService.CreateUserAsync(user);
-            return CreatedAtAction(nameof(GetUser), new { id = createdUser.Id }, createdUser);
+
+            var createdUserDto = new UserDto
+            {
+                Id = createdUser.Id,
+                Name = createdUser.Name
+            };
+
+            return CreatedAtAction(nameof(GetUser), new { id = createdUserDto.Id }, createdUserDto);
         }
         catch (ArgumentException ex)
         {
@@ -48,17 +72,30 @@ public class UsersController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateUser(int id, User user)
+    public async Task<IActionResult> UpdateUser(int id, UserDto userDto)
     {
-        if (id != user.Id)
+        if (id != userDto.Id)
         {
             return BadRequest();
         }
 
         try
         {
+            var user = new User
+            {
+                Id = userDto.Id,
+                Name = userDto.Name
+            };
+
             var updatedUser = await _userService.UpdateUserAsync(user);
-            return Ok(updatedUser);
+
+            var updatedUserDto = new UserDto
+            {
+                Id = updatedUser.Id,
+                Name = updatedUser.Name
+            };
+
+            return Ok(updatedUserDto);
         }
         catch (ArgumentException ex)
         {
