@@ -18,6 +18,11 @@ public class UserService : IUserService
         return await _userRepository.GetByIdAsync(id);
     }
 
+    public async Task<User?> GetUserByEmailAsync(string email)
+    {
+        return await _userRepository.GetByEmailAsync(email);
+    }
+
     public async Task<IEnumerable<User>> GetAllUsersAsync()
     {
         return await _userRepository.GetAllAsync();
@@ -29,6 +34,18 @@ public class UserService : IUserService
         if (string.IsNullOrWhiteSpace(user.Name))
         {
             throw new ArgumentException("User name is required");
+        }
+
+        if (string.IsNullOrWhiteSpace(user.Email))
+        {
+            throw new ArgumentException("User email is required");
+        }
+
+        // Check if email already exists
+        var existingUser = await _userRepository.GetByEmailAsync(user.Email);
+        if (existingUser != null)
+        {
+            throw new ArgumentException("A user with this email already exists");
         }
 
         return await _userRepository.AddAsync(user);
@@ -46,6 +63,18 @@ public class UserService : IUserService
         if (string.IsNullOrWhiteSpace(user.Name))
         {
             throw new ArgumentException("User name is required");
+        }
+
+        if (string.IsNullOrWhiteSpace(user.Email))
+        {
+            throw new ArgumentException("User email is required");
+        }
+
+        // Check if email already exists for a different user
+        var userWithEmail = await _userRepository.GetByEmailAsync(user.Email);
+        if (userWithEmail != null && userWithEmail.Id != user.Id)
+        {
+            throw new ArgumentException("A user with this email already exists");
         }
 
         return await _userRepository.UpdateAsync(user);

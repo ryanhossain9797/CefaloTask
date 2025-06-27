@@ -23,7 +23,8 @@ public class UsersController : ControllerBase
         var userDtos = users.Select(u => new UserDto
         {
             Id = u.Id,
-            Name = u.Name
+            Name = u.Name,
+            Email = u.Email
         });
         return Ok(userDtos);
     }
@@ -40,7 +41,26 @@ public class UsersController : ControllerBase
         var userDto = new UserDto
         {
             Id = user.Id,
-            Name = user.Name
+            Name = user.Name,
+            Email = user.Email
+        };
+        return Ok(userDto);
+    }
+
+    [HttpGet("email/{email}")]
+    public async Task<ActionResult<UserDto>> GetUserByEmail(string email)
+    {
+        var user = await _userService.GetUserByEmailAsync(email);
+        if (user == null)
+        {
+            return NotFound();
+        }
+
+        var userDto = new UserDto
+        {
+            Id = user.Id,
+            Name = user.Name,
+            Email = user.Email
         };
         return Ok(userDto);
     }
@@ -52,7 +72,8 @@ public class UsersController : ControllerBase
         {
             var user = new User
             {
-                Name = userDto.Name
+                Name = userDto.Name,
+                Email = userDto.Email
             };
 
             var createdUser = await _userService.CreateUserAsync(user);
@@ -60,7 +81,8 @@ public class UsersController : ControllerBase
             var createdUserDto = new UserDto
             {
                 Id = createdUser.Id,
-                Name = createdUser.Name
+                Name = createdUser.Name,
+                Email = createdUser.Email
             };
 
             return CreatedAtAction(nameof(GetUser), new { id = createdUserDto.Id }, createdUserDto);
@@ -84,7 +106,8 @@ public class UsersController : ControllerBase
             var user = new User
             {
                 Id = userDto.Id,
-                Name = userDto.Name
+                Name = userDto.Name,
+                Email = userDto.Email
             };
 
             var updatedUser = await _userService.UpdateUserAsync(user);
@@ -92,7 +115,8 @@ public class UsersController : ControllerBase
             var updatedUserDto = new UserDto
             {
                 Id = updatedUser.Id,
-                Name = updatedUser.Name
+                Name = updatedUser.Name,
+                Email = updatedUser.Email
             };
 
             return Ok(updatedUserDto);

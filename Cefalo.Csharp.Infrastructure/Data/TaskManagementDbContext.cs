@@ -33,12 +33,13 @@ public class TaskManagementDbContext : DbContext
         {
             entity.HasKey(e => e.Id);
             entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
+            entity.Property(e => e.Email).IsRequired().HasMaxLength(255);
         });
 
         // Seed data
         modelBuilder.Entity<User>().HasData(
-            new User { Id = 1, Name = "John Doe" },
-            new User { Id = 2, Name = "Jane Smith" }
+            new User { Id = 1, Name = "John Doe", Email = "john.doe@example.com" },
+            new User { Id = 2, Name = "Jane Smith", Email = "jane.smith@example.com" }
         );
 
         modelBuilder.Entity<Ticket>().HasData(
