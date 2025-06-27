@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Repos\\cefalo\\Cefalo.Csharp.Core\\Cefalo.Csharp.Core.csproj": {}
+    "C:\\Repos\\Cefalo\\Cefalo.Csharp.Core\\Cefalo.Csharp.Core.csproj": {}
   },
   "projects": {
-    "C:\\Repos\\cefalo\\Cefalo.Csharp.Core\\Cefalo.Csharp.Core.csproj": {
+    "C:\\Repos\\Cefalo\\Cefalo.Csharp.Core\\Cefalo.Csharp.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Repos\\cefalo\\Cefalo.Csharp.Core\\Cefalo.Csharp.Core.csproj",
+        "projectUniqueName": "C:\\Repos\\Cefalo\\Cefalo.Csharp.Core\\Cefalo.Csharp.Core.csproj",
         "projectName": "Cefalo.Csharp.Core",
-        "projectPath": "C:\\Repos\\cefalo\\Cefalo.Csharp.Core\\Cefalo.Csharp.Core.csproj",
+        "projectPath": "C:\\Repos\\Cefalo\\Cefalo.Csharp.Core\\Cefalo.Csharp.Core.csproj",
         "packagesPath": "C:\\Users\\raiyan.hossain\\.nuget\\packages\\",
-        "outputPath": "C:\\Repos\\cefalo\\Cefalo.Csharp.Core\\obj\\",
+        "outputPath": "C:\\Repos\\Cefalo\\Cefalo.Csharp.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
