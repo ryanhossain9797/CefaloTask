@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace Cefalo.Csharp.Core.Entities;
 
 public class TaskItem
@@ -10,6 +12,8 @@ public class TaskItem
     public DateTime CreatedAt { get; set; }
     public DateTime? DueDate { get; set; }
     public int UserId { get; set; }
+
+    [JsonIgnore]
     public User User { get; set; } = null!;
 }
 

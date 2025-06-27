@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Repos\\cefalo\\Cefalo.Csharp.Core\\Cefalo.Csharp.Core.csproj",
+      "projectUniqueName": "c:\\Repos\\Cefalo\\Cefalo.Csharp.Core\\Cefalo.Csharp.Core.csproj",
       "projectName": "Cefalo.Csharp.Core",
-      "projectPath": "C:\\Repos\\cefalo\\Cefalo.Csharp.Core\\Cefalo.Csharp.Core.csproj",
+      "projectPath": "c:\\Repos\\Cefalo\\Cefalo.Csharp.Core\\Cefalo.Csharp.Core.csproj",
       "packagesPath": "C:\\Users\\raiyan.hossain\\.nuget\\packages\\",
-      "outputPath": "C:\\Repos\\cefalo\\Cefalo.Csharp.Core\\obj\\",
+      "outputPath": "c:\\Repos\\Cefalo\\Cefalo.Csharp.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
