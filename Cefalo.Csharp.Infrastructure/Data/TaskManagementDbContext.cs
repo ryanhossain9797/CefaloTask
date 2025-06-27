@@ -51,8 +51,8 @@ public class TaskManagementDbContext : DbContext
                 Id = 1,
                 Title = "Complete project documentation",
                 Description = "Write comprehensive documentation for the new feature",
-                Status = TaskStatus.Todo,
-                Priority = TaskPriority.High,
+                Status = Cefalo.Csharp.Core.Entities.TaskStatus.Todo,
+                Priority = Cefalo.Csharp.Core.Entities.TaskPriority.High,
                 CreatedAt = DateTime.UtcNow,
                 DueDate = DateTime.UtcNow.AddDays(7),
                 UserId = 1
@@ -62,8 +62,8 @@ public class TaskManagementDbContext : DbContext
                 Id = 2,
                 Title = "Review code changes",
                 Description = "Review pull request #123 for the authentication module",
-                Status = TaskStatus.InProgress,
-                Priority = TaskPriority.Medium,
+                Status = Cefalo.Csharp.Core.Entities.TaskStatus.InProgress,
+                Priority = Cefalo.Csharp.Core.Entities.TaskPriority.Medium,
                 CreatedAt = DateTime.UtcNow.AddDays(-1),
                 DueDate = DateTime.UtcNow.AddDays(2),
                 UserId = 2

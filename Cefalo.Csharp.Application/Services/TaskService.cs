@@ -47,7 +47,7 @@ public class TaskService : ITaskService
         }
 
         // Set default values
-        task.Status = TaskStatus.Todo;
+        task.Status = Cefalo.Csharp.Core.Entities.TaskStatus.Todo;
         task.CreatedAt = DateTime.UtcNow;
 
         return await _taskRepository.AddAsync(task);
