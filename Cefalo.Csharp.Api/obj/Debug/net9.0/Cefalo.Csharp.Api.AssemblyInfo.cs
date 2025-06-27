@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Cefalo.Csharp.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+134c19d21bca5530b03c76024e6df160fd4ca278")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5c60b5a10b701f57788af4adfeddf5326aec996d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Cefalo.Csharp.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Cefalo.Csharp.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
