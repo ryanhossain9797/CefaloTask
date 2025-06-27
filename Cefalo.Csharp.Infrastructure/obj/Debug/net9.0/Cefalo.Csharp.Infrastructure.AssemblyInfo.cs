@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Cefalo.Csharp.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fd495ccadaca387958f575008b061b57e4c25981")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+134c19d21bca5530b03c76024e6df160fd4ca278")]
 [assembly: System.Reflection.AssemblyProductAttribute("Cefalo.Csharp.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Cefalo.Csharp.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

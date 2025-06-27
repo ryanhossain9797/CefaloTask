@@ -10,10 +10,13 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddApplicationServices(this IServiceCollection services)
     {
-        services.AddScoped<ITaskService, TaskService>();
+        // Register services
         services.AddScoped<IUserService, UserService>();
-        services.AddScoped<ITaskRepository, TaskRepository>();
+        services.AddScoped<ITicketService, TicketService>();
+
+        // Register repositories
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<ITicketRepository, TicketRepository>();
 
         return services;
     }

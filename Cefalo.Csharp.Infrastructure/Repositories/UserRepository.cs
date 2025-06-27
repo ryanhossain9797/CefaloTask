@@ -17,14 +17,14 @@ public class UserRepository : IUserRepository
     public async Task<User?> GetByIdAsync(int id)
     {
         return await _context.Users
-            .Include(u => u.Tasks)
+            .Include(u => u.Tickets)
             .FirstOrDefaultAsync(u => u.Id == id);
     }
 
     public async Task<IEnumerable<User>> GetAllAsync()
     {
         return await _context.Users
-            .Include(u => u.Tasks)
+            .Include(u => u.Tickets)
             .ToListAsync();
     }
 

@@ -4,14 +4,14 @@
     "C:\\Repos\\Cefalo\\Cefalo.Csharp.Infrastructure\\Cefalo.Csharp.Infrastructure.csproj": {}
   },
   "projects": {
-    "c:\\Repos\\Cefalo\\Cefalo.Csharp.Core\\Cefalo.Csharp.Core.csproj": {
+    "C:\\Repos\\Cefalo\\Cefalo.Csharp.Core\\Cefalo.Csharp.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Repos\\Cefalo\\Cefalo.Csharp.Core\\Cefalo.Csharp.Core.csproj",
+        "projectUniqueName": "C:\\Repos\\Cefalo\\Cefalo.Csharp.Core\\Cefalo.Csharp.Core.csproj",
         "projectName": "Cefalo.Csharp.Core",
-        "projectPath": "c:\\Repos\\Cefalo\\Cefalo.Csharp.Core\\Cefalo.Csharp.Core.csproj",
+        "projectPath": "C:\\Repos\\Cefalo\\Cefalo.Csharp.Core\\Cefalo.Csharp.Core.csproj",
         "packagesPath": "C:\\Users\\raiyan.hossain\\.nuget\\packages\\",
-        "outputPath": "c:\\Repos\\Cefalo\\Cefalo.Csharp.Core\\obj\\",
+        "outputPath": "C:\\Repos\\Cefalo\\Cefalo.Csharp.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -99,8 +99,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "c:\\Repos\\Cefalo\\Cefalo.Csharp.Core\\Cefalo.Csharp.Core.csproj": {
-                "projectPath": "c:\\Repos\\Cefalo\\Cefalo.Csharp.Core\\Cefalo.Csharp.Core.csproj"
+              "C:\\Repos\\Cefalo\\Cefalo.Csharp.Core\\Cefalo.Csharp.Core.csproj": {
+                "projectPath": "C:\\Repos\\Cefalo\\Cefalo.Csharp.Core\\Cefalo.Csharp.Core.csproj"
               }
             }
           }

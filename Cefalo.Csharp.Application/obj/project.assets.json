@@ -752,8 +752,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "c:\\Repos\\Cefalo\\Cefalo.Csharp.Core\\Cefalo.Csharp.Core.csproj": {
-              "projectPath": "c:\\Repos\\Cefalo\\Cefalo.Csharp.Core\\Cefalo.Csharp.Core.csproj"
+            "C:\\Repos\\Cefalo\\Cefalo.Csharp.Core\\Cefalo.Csharp.Core.csproj": {
+              "projectPath": "C:\\Repos\\Cefalo\\Cefalo.Csharp.Core\\Cefalo.Csharp.Core.csproj"
             },
             "C:\\Repos\\Cefalo\\Cefalo.Csharp.Infrastructure\\Cefalo.Csharp.Infrastructure.csproj": {
               "projectPath": "C:\\Repos\\Cefalo\\Cefalo.Csharp.Infrastructure\\Cefalo.Csharp.Infrastructure.csproj"

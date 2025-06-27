@@ -2,22 +2,19 @@ using System.Text.Json.Serialization;
 
 namespace Cefalo.Csharp.Core.Entities;
 
-public class TaskItem
+public class Ticket
 {
     public int Id { get; set; }
     public string Title { get; set; } = string.Empty;
-    public string Description { get; set; } = string.Empty;
-    public TaskStatus Status { get; set; }
-    public TaskPriority Priority { get; set; }
+    public Cefalo.Csharp.Core.Entities.TicketStatus Status { get; set; }
     public DateTime CreatedAt { get; set; }
-    public DateTime? DueDate { get; set; }
     public int UserId { get; set; }
 
     [JsonIgnore]
     public User User { get; set; } = null!;
 }
 
-public enum TaskStatus
+public enum TicketStatus
 {
     Todo,
     InProgress,
@@ -25,7 +22,7 @@ public enum TaskStatus
     Cancelled
 }
 
-public enum TaskPriority
+public enum TicketPriority
 {
     Low,
     Medium,

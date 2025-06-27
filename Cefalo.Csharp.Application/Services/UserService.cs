@@ -31,17 +31,6 @@ public class UserService : IUserService
             throw new ArgumentException("User name is required");
         }
 
-        if (string.IsNullOrWhiteSpace(user.Email))
-        {
-            throw new ArgumentException("User email is required");
-        }
-
-        // Email format validation (basic)
-        if (!user.Email.Contains("@"))
-        {
-            throw new ArgumentException("Invalid email format");
-        }
-
         return await _userRepository.AddAsync(user);
     }
 
@@ -57,11 +46,6 @@ public class UserService : IUserService
         if (string.IsNullOrWhiteSpace(user.Name))
         {
             throw new ArgumentException("User name is required");
-        }
-
-        if (string.IsNullOrWhiteSpace(user.Email))
-        {
-            throw new ArgumentException("User email is required");
         }
 
         return await _userRepository.UpdateAsync(user);
