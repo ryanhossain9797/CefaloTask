@@ -30,7 +30,6 @@ public class UserService : IUserService
 
     public async Task<User> CreateUserAsync(User user)
     {
-        // Basic validation
         if (string.IsNullOrWhiteSpace(user.Name))
         {
             throw new ArgumentException("User name is required");
@@ -41,7 +40,6 @@ public class UserService : IUserService
             throw new ArgumentException("User email is required");
         }
 
-        // Check if email already exists
         var existingUser = await _userRepository.GetByEmailAsync(user.Email);
         if (existingUser != null)
         {
@@ -59,7 +57,6 @@ public class UserService : IUserService
             throw new ArgumentException($"User with ID {user.Id} not found");
         }
 
-        // Basic validation
         if (string.IsNullOrWhiteSpace(user.Name))
         {
             throw new ArgumentException("User name is required");
@@ -70,7 +67,6 @@ public class UserService : IUserService
             throw new ArgumentException("User email is required");
         }
 
-        // Check if email already exists for a different user
         var userWithEmail = await _userRepository.GetByEmailAsync(user.Email);
         if (userWithEmail != null && userWithEmail.Id != user.Id)
         {

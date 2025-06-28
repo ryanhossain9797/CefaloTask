@@ -14,7 +14,6 @@ public class TaskManagementDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        // Ticket configuration
         modelBuilder.Entity<Ticket>(entity =>
         {
             entity.HasKey(e => e.Id);
@@ -28,7 +27,6 @@ public class TaskManagementDbContext : DbContext
                   .OnDelete(DeleteBehavior.Cascade);
         });
 
-        // User configuration
         modelBuilder.Entity<User>(entity =>
         {
             entity.HasKey(e => e.Id);
@@ -36,7 +34,6 @@ public class TaskManagementDbContext : DbContext
             entity.Property(e => e.Email).IsRequired().HasMaxLength(255);
         });
 
-        // Seed data
         modelBuilder.Entity<User>().HasData(
             new User { Id = 1, Name = "John Doe", Email = "john.doe@example.com" },
             new User { Id = 2, Name = "Jane Smith", Email = "jane.smith@example.com" }
@@ -47,7 +44,7 @@ public class TaskManagementDbContext : DbContext
             {
                 Id = 1,
                 Title = "Complete project documentation",
-                Status = Cefalo.Csharp.Core.Entities.TicketStatus.Todo,
+                Status = TicketStatus.Todo,
                 CreatedAt = new DateTime(2024, 6, 27, 0, 0, 0, DateTimeKind.Utc),
                 UserId = 1
             },
@@ -55,7 +52,7 @@ public class TaskManagementDbContext : DbContext
             {
                 Id = 2,
                 Title = "Review code changes",
-                Status = Cefalo.Csharp.Core.Entities.TicketStatus.InProgress,
+                Status = TicketStatus.InProgress,
                 CreatedAt = new DateTime(2024, 6, 26, 0, 0, 0, DateTimeKind.Utc),
                 UserId = 2
             }
