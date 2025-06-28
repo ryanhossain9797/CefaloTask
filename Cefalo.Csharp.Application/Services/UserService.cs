@@ -46,6 +46,7 @@ public class UserService : IUserService
             throw new ArgumentException("A user with this email already exists");
         }
 
+        user.Deleted = false; // Ensure new users are not marked as deleted
         return await _userRepository.AddAsync(user);
     }
 
@@ -55,6 +56,11 @@ public class UserService : IUserService
         if (existingUser == null)
         {
             throw new ArgumentException($"User with ID {user.Id} not found");
+        }
+
+        if (existingUser.Deleted)
+        {
+            throw new ArgumentException($"Cannot update deleted user with ID {user.Id}");
         }
 
         if (string.IsNullOrWhiteSpace(user.Name))
@@ -73,6 +79,7 @@ public class UserService : IUserService
             throw new ArgumentException("A user with this email already exists");
         }
 
+        user.Deleted = false; // Ensure we don't accidentally mark as deleted during update
         return await _userRepository.UpdateAsync(user);
     }
 
@@ -82,6 +89,11 @@ public class UserService : IUserService
         if (user == null)
         {
             throw new ArgumentException($"User with ID {id} not found");
+        }
+
+        if (user.Deleted)
+        {
+            throw new ArgumentException($"User with ID {id} is already deleted");
         }
 
         await _userRepository.DeleteAsync(id);

@@ -9,6 +9,7 @@ public class Ticket
     public TicketStatus Status { get; set; }
     public DateTime CreatedAt { get; set; }
     public int UserId { get; set; }
+    public bool Deleted { get; set; } = false;
 
     [JsonIgnore]
     public User User { get; set; } = null!;

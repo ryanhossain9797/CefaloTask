@@ -17,26 +17,30 @@ public class UserRepository : IUserRepository
     public async Task<User?> GetByIdAsync(int id)
     {
         return await _context.Users
-            .Include(u => u.Tickets)
+            .Include(u => u.Tickets.Where(t => !t.Deleted))
+            .Where(u => !u.Deleted)
             .FirstOrDefaultAsync(u => u.Id == id);
     }
 
     public async Task<User?> GetByEmailAsync(string email)
     {
         return await _context.Users
-            .Include(u => u.Tickets)
+            .Include(u => u.Tickets.Where(t => !t.Deleted))
+            .Where(u => !u.Deleted)
             .FirstOrDefaultAsync(u => u.Email == email);
     }
 
     public async Task<IEnumerable<User>> GetAllAsync()
     {
         return await _context.Users
-            .Include(u => u.Tickets)
+            .Include(u => u.Tickets.Where(t => !t.Deleted))
+            .Where(u => !u.Deleted)
             .ToListAsync();
     }
 
     public async Task<User> AddAsync(User user)
     {
+        user.Deleted = false; // Ensure new users are not marked as deleted
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
         return user;
@@ -51,10 +55,21 @@ public class UserRepository : IUserRepository
 
     public async Task DeleteAsync(int id)
     {
-        var user = await _context.Users.FindAsync(id);
+        var user = await _context.Users
+            .Include(u => u.Tickets.Where(t => !t.Deleted))
+            .Where(u => !u.Deleted)
+            .FirstOrDefaultAsync(u => u.Id == id);
+
         if (user != null)
         {
-            _context.Users.Remove(user);
+            // Soft delete all tickets first
+            foreach (var ticket in user.Tickets)
+            {
+                ticket.Deleted = true;
+            }
+
+            // Soft delete the user
+            user.Deleted = true;
             await _context.SaveChangesAsync();
         }
     }

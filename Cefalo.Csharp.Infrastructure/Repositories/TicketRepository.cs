@@ -16,23 +16,31 @@ public class TicketRepository : ITicketRepository
 
     public async Task<Ticket?> GetByIdAsync(int id)
     {
-        return await _context.Tickets.FindAsync(id);
+        return await _context.Tickets
+            .Include(t => t.User)
+            .Where(t => !t.Deleted)
+            .FirstOrDefaultAsync(t => t.Id == id);
     }
 
     public async Task<IEnumerable<Ticket>> GetAllAsync()
     {
-        return await _context.Tickets.ToListAsync();
+        return await _context.Tickets
+            .Include(t => t.User)
+            .Where(t => !t.Deleted)
+            .ToListAsync();
     }
 
     public async Task<IEnumerable<Ticket>> GetByUserIdAsync(int userId)
     {
         return await _context.Tickets
-            .Where(t => t.UserId == userId)
+            .Include(t => t.User)
+            .Where(t => t.UserId == userId && !t.Deleted)
             .ToListAsync();
     }
 
     public async Task<Ticket> AddAsync(Ticket ticket)
     {
+        ticket.Deleted = false; // Ensure new tickets are not marked as deleted
         _context.Tickets.Add(ticket);
         await _context.SaveChangesAsync();
         return ticket;
@@ -47,10 +55,13 @@ public class TicketRepository : ITicketRepository
 
     public async Task DeleteAsync(int id)
     {
-        var ticket = await _context.Tickets.FindAsync(id);
+        var ticket = await _context.Tickets
+            .Where(t => !t.Deleted)
+            .FirstOrDefaultAsync(t => t.Id == id);
+
         if (ticket != null)
         {
-            _context.Tickets.Remove(ticket);
+            ticket.Deleted = true;
             await _context.SaveChangesAsync();
         }
     }
