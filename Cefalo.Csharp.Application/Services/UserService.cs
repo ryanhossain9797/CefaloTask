@@ -4,29 +4,17 @@ using Cefalo.Csharp.Core.Repositories;
 
 namespace Cefalo.Csharp.Application.Services;
 
-public class UserService : IUserService
+public class UserService(
+    IUserRepository userRepository)
+    : IUserService
 {
-    private readonly IUserRepository _userRepository;
+    private readonly IUserRepository _userRepository = userRepository;
 
-    public UserService(IUserRepository userRepository)
-    {
-        _userRepository = userRepository;
-    }
+    public Task<User?> GetUserByIdAsync(int id) => _userRepository.GetByIdAsync(id);
 
-    public async Task<User?> GetUserByIdAsync(int id)
-    {
-        return await _userRepository.GetByIdAsync(id);
-    }
+    public Task<User?> GetUserByEmailAsync(string email) => _userRepository.GetByEmailAsync(email);
 
-    public async Task<User?> GetUserByEmailAsync(string email)
-    {
-        return await _userRepository.GetByEmailAsync(email);
-    }
-
-    public async Task<IEnumerable<User>> GetAllUsersAsync()
-    {
-        return await _userRepository.GetAllAsync();
-    }
+    public Task<IEnumerable<User>> GetAllUsersAsync() => _userRepository.GetAllAsync();
 
     public async Task<User> CreateUserAsync(User user)
     {
@@ -46,22 +34,13 @@ public class UserService : IUserService
             throw new ArgumentException("A user with this email already exists");
         }
 
-        user.Deleted = false; // Ensure new users are not marked as deleted
+        user.Deleted = false;
         return await _userRepository.AddAsync(user);
     }
 
     public async Task<User> UpdateUserAsync(User user)
     {
-        var existingUser = await _userRepository.GetByIdAsync(user.Id);
-        if (existingUser == null)
-        {
-            throw new ArgumentException($"User with ID {user.Id} not found");
-        }
-
-        if (existingUser.Deleted)
-        {
-            throw new ArgumentException($"Cannot update deleted user with ID {user.Id}");
-        }
+        _ = await _userRepository.GetByIdAsync(user.Id) ?? throw new ArgumentException($"User with ID {user.Id} not found");
 
         if (string.IsNullOrWhiteSpace(user.Name))
         {
@@ -79,23 +58,13 @@ public class UserService : IUserService
             throw new ArgumentException("A user with this email already exists");
         }
 
-        user.Deleted = false; // Ensure we don't accidentally mark as deleted during update
+        user.Deleted = false;
         return await _userRepository.UpdateAsync(user);
     }
 
     public async Task DeleteUserAsync(int id)
     {
-        var user = await _userRepository.GetByIdAsync(id);
-        if (user == null)
-        {
-            throw new ArgumentException($"User with ID {id} not found");
-        }
-
-        if (user.Deleted)
-        {
-            throw new ArgumentException($"User with ID {id} is already deleted");
-        }
-
+        _ = await _userRepository.GetByIdAsync(id) ?? throw new ArgumentException($"User with ID {id} not found");
         await _userRepository.DeleteAsync(id);
     }
 }

@@ -40,7 +40,7 @@ public class UserRepository : IUserRepository
 
     public async Task<User> AddAsync(User user)
     {
-        user.Deleted = false; // Ensure new users are not marked as deleted
+        user.Deleted = false;
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
         return user;
@@ -62,13 +62,11 @@ public class UserRepository : IUserRepository
 
         if (user != null)
         {
-            // Soft delete all tickets first
             foreach (var ticket in user.Tickets)
             {
                 ticket.Deleted = true;
             }
 
-            // Soft delete the user
             user.Deleted = true;
             await _context.SaveChangesAsync();
         }

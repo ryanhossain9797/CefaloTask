@@ -82,7 +82,6 @@ public class TicketsController : ControllerBase
             {
                 Title = ticketDto.Title,
                 Status = ticketDto.Status,
-                CreatedAt = ticketDto.CreatedAt,
                 UserId = ticketDto.UserId
             };
 

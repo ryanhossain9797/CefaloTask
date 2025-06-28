@@ -40,7 +40,7 @@ public class TicketRepository : ITicketRepository
 
     public async Task<Ticket> AddAsync(Ticket ticket)
     {
-        ticket.Deleted = false; // Ensure new tickets are not marked as deleted
+        ticket.Deleted = false;
         _context.Tickets.Add(ticket);
         await _context.SaveChangesAsync();
         return ticket;
