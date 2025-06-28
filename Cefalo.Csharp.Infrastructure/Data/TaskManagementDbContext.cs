@@ -24,7 +24,7 @@ public class TaskManagementDbContext : DbContext
             entity.HasOne(e => e.User)
                   .WithMany(u => u.Tickets)
                   .HasForeignKey(e => e.UserId)
-                  .OnDelete(DeleteBehavior.Cascade);
+                  .OnDelete(DeleteBehavior.Restrict);
         });
 
         modelBuilder.Entity<User>(entity =>
